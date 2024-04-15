@@ -48,3 +48,21 @@ function wheatFromChaff(values) {
 }
 
 // or
+
+function wheatFromChaff(values) {
+  let [i, j] = [0, values.length - 1];
+  let vals = values.slice();
+  
+  while (i < j) {
+    if (vals[i] < 0) {
+      i += 1;
+    } else if (vals[j] > 0) {
+      j -= 1;
+    } else {
+      [vals[i], vals[j]] = [vals[j], vals[i]];
+      [i, j] = [i + 1, j - 1];
+    }
+  }
+  
+  return vals;
+}
