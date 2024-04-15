@@ -36,3 +36,13 @@ Input >> Output Examples:
 
 
 // Solution
+
+function wheatFromChaff(values) {
+  const o = [...values];
+  for (let head = 0, tail = values.length - 1; head < tail; head++, tail--) {
+    while (values[head] < 0) head++;
+    while (values[tail] > 0) tail--;
+    if (head < tail) [o[head], o[tail]] = [o[tail], o[head]];
+  }
+  return o;
+}
